@@ -17,8 +17,8 @@ function formValue() {
 function getFormValue() {
   let saveFeedback = JSON.parse(localStorage.getItem('feedback-form-state'));
   if (saveFeedback) {
-    refs.onEmail.value = saveFeedback.email;
-    refs.onMessage.value = saveFeedback.message;
+    refs.onEmail.value = saveFeedback.email || refs.onEmail.value == '';
+    refs.onMessage.value = saveFeedback.message || refs.onMessage.value == '';
   }
   feedback = saveFeedback;
 }
@@ -26,13 +26,10 @@ getFormValue();
 refs.onForm.addEventListener('submit', onSubmit);
 function onSubmit(event) {
   event.preventDefault();
-  if (refs.onEmail.value.trim() !== '' && refs.onMessage.value.trim() !== '') {
+  if (refs.onEmail.value.trim() && refs.onMessage.value.trim()) {
     console.log(feedback);
 
     localStorage.removeItem('feedback-form-state');
     refs.onForm.reset();
   }
 }
-
-// console.log(saveFeedback);
-// console.log();
