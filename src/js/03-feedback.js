@@ -1,27 +1,3 @@
-// setItem(key, value) - створює новий, або оновлює вже існуючий запис у сховищі.
-// getItem(key) - повертає зі сховища значення з ключем key.
-// removeItem(key) - видаляє зі сховища запис з ключем key.
-// clear() - повністю очищає всі записи сховища.
-// length - кількість записів у сховищі.
-
-// const form = document.querySelector('#message-form');
-// const output = document.querySelector('#output');
-// const LOCALSTORAGE_KEY = 'goit-example-message';
-
-// updateOutput();
-// form.addEventListener('submit', saveMessage);
-
-// function saveMessage(evt) {
-//   evt.preventDefault();
-//   localStorage.setItem(LOCALSTORAGE_KEY, form.elements.message.value);
-//   updateOutput();
-//   form.reset();
-// }
-
-// function updateOutput() {
-//   output.textContent = localStorage.getItem(LOCALSTORAGE_KEY) || '';
-// }
-
 import throttle from 'lodash.throttle';
 
 const refs = {
@@ -44,7 +20,7 @@ function getFormValue() {
     refs.onEmail.value = saveFeedback.email;
     refs.onMessage.value = saveFeedback.message;
   }
-  // feedback = saveFeedback;
+  feedback = saveFeedback;
 }
 getFormValue();
 refs.onForm.addEventListener('submit', onSubmit);

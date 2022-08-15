@@ -9,18 +9,21 @@ const addImg = document.querySelector('.gallery');
 addImg.innerHTML = galleryItems
   .map(
     ({ preview, original, description }) =>
-      `<a class="gallery__link" href="${original}">
+      `<div class="gallery__item">
+    <a class="gallery__link" href="${original}">
       <img
         class="gallery__image"
         src="${preview}"
         data-source="${original}"
         alt="${description}"
       />
-    </a>`
+    </a>
+  </div>`
   )
   .join('');
 
 const lightbox = new SimpleLightbox('.gallery a', {
-  captionData: 'alt',
   captionDelay: 250,
+  captionPosition: 'bottom',
+  captionsData: 'alt',
 });
